@@ -18,3 +18,4 @@ jobs:
         with:
           node-version: 18
           browser: electron
+          env: baseUrl=https://test.mycompany.com
