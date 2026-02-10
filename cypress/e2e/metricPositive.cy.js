@@ -1,6 +1,7 @@
 describe("Metric add positive", () => {
   beforeEach(() => {
     cy.login("admin", "Sipmon123P@ssw0rd"); // Login before each test
+    cy.wait(4000); // Wait for login to complete
 
     cy.on("uncaught:exception", (err, runnable) => {
       // Returning false here prevents Cypress from failing the test
