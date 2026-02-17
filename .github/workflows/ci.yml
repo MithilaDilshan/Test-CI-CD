@@ -27,7 +27,7 @@ jobs:
           browser: electron
           spec: cypress/e2e/api/login.api.cy.js
         env:
-          CYPRESS_BASE_URL: https://test.mycompany.com
+          CYPRESS_BASE_URL: http://192.168.62.238/sipmon
           CYPRESS_API_USER: ${{ secrets.API_USER }}
           CYPRESS_API_PASS: ${{ secrets.API_PASS }}
 
