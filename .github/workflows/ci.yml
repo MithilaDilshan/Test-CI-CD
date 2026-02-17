@@ -21,11 +21,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Cypress Smoke Test
+      - name: Run API Tests
         uses: cypress-io/github-action@v6
         with:
           browser: electron
-          spec: cypress/e2e/ci-smoke.cy.js
+          spec: cypress/e2e/api/login.api.cy.js
         env:
-          CYPRESS_BASE_URL: https://example.cypress.io
+          CYPRESS_BASE_URL: https://test.mycompany.com
+          CYPRESS_API_USER: ${{ secrets.API_USER }}
+          CYPRESS_API_PASS: ${{ secrets.API_PASS }}
+
 
