@@ -1,12 +1,12 @@
-name: Cypress CI
+name: API Tests CI
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
   pull_request:
 
 jobs:
-  cypress-run:
+  api-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,9 +20,8 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: electron
-          config: baseUrl=${{ env.CYPRESS_BASE_URL }}
           record: false
         env:
-          CYPRESS_BASE_URL: https://test.mycompany.com
-          CYPRESS_API_USER: ${{ secrets.API_USER }}
-          CYPRESS_API_PASS: ${{ secrets.API_PASS }}
+          CYPRESS_BASE_URL: https://dummyjson.com
+          CYPRESS_API_USER_NAME: ${{ secrets.API_USER_NAME }}
+          CYPRESS_API_PASSWORD: ${{ secrets.API_PASSWORD }}

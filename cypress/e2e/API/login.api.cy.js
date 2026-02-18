@@ -1,22 +1,18 @@
-describe('SIPMon Login API', () => {
-  it('should login successfully', () => {
-
-    cy.log('API_USER:', Cypress.env('API_USER'))
-    cy.log('API_PASS exists:', !!Cypress.env('API_PASS'))
-
+describe("ReqRes Login API", () => {
+  it("should login successfully", () => {
     cy.request({
-      method: 'POST',
-      url: '/api/latest/authentication/providers/configurations/local',
+      method: "POST",
+      url: "/auth/login",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: {
-        login: Cypress.env('API_USER'),
-        password: Cypress.env('API_PASS')
-      }
+        username: Cypress.env("API_USER_NAME"),
+        password: Cypress.env("API_PASSWORD"),
+      },
     }).then((response) => {
-      expect(response.status).to.eq(200)
-      expect(response.body).to.exist
-    })
-  })
-})
+      expect(response.status).to.eq(200);
+      expect(response.body).to.have.property("accessToken");
+    });
+  });
+});
