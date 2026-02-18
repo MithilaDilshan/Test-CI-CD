@@ -19,6 +19,7 @@ jobs:
       - name: Run Cypress API tests
         uses: cypress-io/github-action@v6
         with:
+          spec: cypress/e2e/API/login.api.cy.js
           browser: electron
           record: false
         env:
